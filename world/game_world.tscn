@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://world/game_world.gd" type="Script" id=1]
+[ext_resource path="res://entities/the_balden/the_balden.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/pickups/strands/strands.tscn" type="PackedScene" id=3]
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+
+[node name="Entities" type="YSort" parent="."]
+
+[node name="TheBalden" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( 160, 208 )
+
+[node name="Strands" parent="Entities" instance=ExtResource( 3 )]
+
+[node name="Strands2" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 40, -32 )
+
+[node name="Strands3" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 72, 8 )
+
+[node name="Strands4" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 40, 16 )
+
+[node name="Strands5" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 0, -32 )
+
+[node name="Strands6" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 24, -8 )
+
+[node name="Strands7" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 40, -8 )
+
+[node name="Strands8" parent="Entities" instance=ExtResource( 3 )]
+position = Vector2( 64, -24 )
