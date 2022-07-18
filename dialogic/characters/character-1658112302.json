@@ -1,0 +1,21 @@
+{
+	"color": "#ff3f98bb",
+	"description": "",
+	"display_name": "Ciliara, the Silken Lock",
+	"display_name_bool": true,
+	"id": "character-1658112302.json",
+	"mirror_portraits": false,
+	"name": "Ciliara",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/gfx/characters/ciliara/portrait.png"
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

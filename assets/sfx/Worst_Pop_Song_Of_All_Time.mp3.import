@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Worst_Pop_Song_Of_All_Time.mp3-b96969e367b79ce902954590e3a56be8.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Worst_Pop_Song_Of_All_Time.mp3"
+dest_files=[ "res://.import/Worst_Pop_Song_Of_All_Time.mp3-b96969e367b79ce902954590e3a56be8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

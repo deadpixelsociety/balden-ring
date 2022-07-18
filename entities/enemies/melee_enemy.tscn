@@ -1,30 +1,28 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/animations/characters/walk_right.tres" type="Animation" id=1]
-[ext_resource path="res://assets/animations/characters/walk_left.tres" type="Animation" id=2]
-[ext_resource path="res://assets/animations/characters/idle_right.tres" type="Animation" id=3]
-[ext_resource path="res://assets/animations/characters/walk_up.tres" type="Animation" id=4]
-[ext_resource path="res://assets/animations/characters/idle_up.tres" type="Animation" id=5]
-[ext_resource path="res://assets/animations/characters/walk_down.tres" type="Animation" id=6]
-[ext_resource path="res://assets/animations/characters/idle_down.tres" type="Animation" id=7]
-[ext_resource path="res://assets/animations/characters/idle_left.tres" type="Animation" id=8]
-[ext_resource path="res://assets/characters/the_balden/the_balden.png" type="Texture" id=9]
-[ext_resource path="res://entities/character_animation_tree.tres" type="AnimationNodeStateMachine" id=10]
+[ext_resource path="res://assets/gfx/characters/the_balden/the_balden.png" type="Texture" id=9]
+[ext_resource path="res://entities/enemy_animation_tree.tres" type="AnimationNodeStateMachine" id=10]
 [ext_resource path="res://states/state_machine.gd" type="Script" id=11]
 [ext_resource path="res://entities/enemies/melee_enemy.gd" type="Script" id=12]
 [ext_resource path="res://entities/enemies/idle_state.gd" type="Script" id=13]
 [ext_resource path="res://entities/enemies/seek_state.gd" type="Script" id=14]
 [ext_resource path="res://entities/enemies/wander_state.gd" type="Script" id=15]
+[ext_resource path="res://assets/shaders/whiteout.gdshader" type="Shader" id=16]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 16.0
 height = 32.0
 
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 16 )
+shader_param/color = Color( 0.94902, 0.101961, 0.101961, 1 )
+shader_param/amount = 0.0
+
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [node name="MeleeEnemy" type="RigidBody2D" groups=["enemy"]]
 collision_layer = 2
-collision_mask = 23
+collision_mask = 22
 mode = 2
 gravity_scale = 0.0
 can_sleep = false
@@ -48,26 +46,20 @@ script = ExtResource( 15 )
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.788235, 0.0509804, 0.0509804, 1 )
+material = SubResource( 3 )
 texture = ExtResource( 9 )
-hframes = 3
-vframes = 2
+hframes = 18
+vframes = 3
+frame = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle_down = ExtResource( 7 )
-anims/idle_left = ExtResource( 8 )
-anims/idle_right = ExtResource( 3 )
-anims/idle_up = ExtResource( 5 )
-anims/walk_down = ExtResource( 6 )
-anims/walk_left = ExtResource( 2 )
-anims/walk_right = ExtResource( 1 )
-anims/walk_up = ExtResource( 4 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = ExtResource( 10 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 1 )
 parameters/attack/blend_position = Vector2( 0, 0 )
 parameters/idle/blend_position = Vector2( 0, 1 )
 parameters/walk/blend_position = Vector2( 0, 0 )
+
+[node name="Tween" type="Tween" parent="."]

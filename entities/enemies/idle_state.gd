@@ -11,7 +11,7 @@ func _init():
 	state_name = "idle"
 
 
-func _process(delta):
+func execute(delta: float):
 	_find_player()
 	if _can_seek():
 		_on_change_state("seek")

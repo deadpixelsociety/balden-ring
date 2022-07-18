@@ -1,0 +1,136 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://entities/interactables/trashfire.gd" type="Script" id=1]
+[ext_resource path="res://assets/gfx/items/trashfire.png" type="Texture" id=2]
+[ext_resource path="res://assets/gfx/square.png" type="Texture" id=3]
+[ext_resource path="res://entities/interactables/interactable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/gfx/shadow.png" type="Texture" id=5]
+[ext_resource path="res://entities/ciliana/cilian.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 16.0
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "burn"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "off"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Gradient" id=17]
+offsets = PoolRealArray( 0, 0.130435, 0.372671, 0.602484, 0.993789, 1 )
+colors = PoolColorArray( 1.5, 1.5, 1.5, 1, 0.824219, 0.68382, 0.204528, 1, 0.945313, 0.185061, 0.147049, 1, 0.996094, 0.359258, 0.0664062, 1, 0.372549, 0.372549, 0.372549, 0.501961, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 17 )
+
+[sub_resource type="Curve" id=18]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.6 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=19]
+lifetime_randomness = 0.5
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+angular_velocity = 60.0
+angular_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 180.0
+angle_random = 1.0
+scale_curve = SubResource( 13 )
+color_ramp = SubResource( 11 )
+
+[node name="Trashfire" instance=ExtResource( 4 )]
+script = ExtResource( 1 )
+display_name = "Trashfire"
+has_ciliana = true
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, 8 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )
+hframes = 5
+
+[node name="Label" parent="." index="2"]
+custom_colors/font_color = Color( 0.992157, 0.231373, 0.231373, 1 )
+text = "Trashfire - E to Interact"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+autoplay = "off"
+anims/RESET = SubResource( 14 )
+anims/burn = SubResource( 15 )
+anims/off = SubResource( 16 )
+
+[node name="Sparks" type="Particles2D" parent="." index="4"]
+visible = false
+position = Vector2( 0, -16 )
+z_index = -1
+amount = 32
+lifetime = 10.0
+preprocess = 5.0
+speed_scale = 3.0
+process_material = SubResource( 19 )
+texture = ExtResource( 3 )
+
+[node name="Shadow" type="Sprite" parent="." index="5"]
+modulate = Color( 1, 1, 1, 0.5 )
+position = Vector2( 0, 28 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="Ciliana" parent="." index="6" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 48, -32 )
+
+[node name="Tween" type="Tween" parent="." index="7"]

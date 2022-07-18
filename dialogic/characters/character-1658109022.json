@@ -1,0 +1,21 @@
+{
+	"color": "#ff085dff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1658109022.json",
+	"mirror_portraits": true,
+	"name": "Ciliana",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/gfx/characters/ciliana/portrait.png"
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

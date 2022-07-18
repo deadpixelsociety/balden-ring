@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=21 format=2]
+[gd_resource type="AnimationNodeStateMachine" load_steps=34 format=2]
 
 [sub_resource type="AnimationNodeAnimation" id=37]
 animation = "attack_left"
@@ -25,6 +25,9 @@ min_space = Vector2( -1.1, -1.1 )
 max_space = Vector2( 1.1, 1.1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id=53]
+animation = "chug"
+
 [sub_resource type="AnimationNodeAnimation" id=20]
 animation = "idle_left"
 
@@ -45,6 +48,31 @@ blend_point_1/pos = Vector2( 0, -1 )
 blend_point_2/node = SubResource( 22 )
 blend_point_2/pos = Vector2( 1.1, 0 )
 blend_point_3/node = SubResource( 36 )
+blend_point_3/pos = Vector2( 0, 1 )
+min_space = Vector2( -1.1, -1.1 )
+max_space = Vector2( 1.1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=45]
+animation = "roll_left"
+
+[sub_resource type="AnimationNodeAnimation" id=46]
+animation = "roll_up"
+
+[sub_resource type="AnimationNodeAnimation" id=47]
+animation = "roll_right"
+
+[sub_resource type="AnimationNodeAnimation" id=48]
+animation = "roll_down"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=49]
+blend_point_0/node = SubResource( 45 )
+blend_point_0/pos = Vector2( -1.1, 0 )
+blend_point_1/node = SubResource( 46 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 47 )
+blend_point_2/pos = Vector2( 1.1, 0 )
+blend_point_3/node = SubResource( 48 )
 blend_point_3/pos = Vector2( 0, 1 )
 min_space = Vector2( -1.1, -1.1 )
 max_space = Vector2( 1.1, 1.1 )
@@ -85,12 +113,31 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=44]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=52]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=57]
+
 [resource]
 states/attack/node = SubResource( 41 )
 states/attack/position = Vector2( 504, 273 )
+states/chug/node = SubResource( 53 )
+states/chug/position = Vector2( 191, 182 )
 states/idle/node = SubResource( 13 )
-states/idle/position = Vector2( 409, 106 )
+states/idle/position = Vector2( 410, 106 )
+states/roll/node = SubResource( 49 )
+states/roll/position = Vector2( 504, -44 )
 states/walk/node = SubResource( 25 )
 states/walk/position = Vector2( 601, 106 )
-transitions = [ "idle", "walk", SubResource( 34 ), "walk", "idle", SubResource( 35 ), "idle", "attack", SubResource( 42 ), "attack", "idle", SubResource( 43 ), "walk", "attack", SubResource( 44 ) ]
+transitions = [ "idle", "walk", SubResource( 34 ), "walk", "idle", SubResource( 35 ), "idle", "attack", SubResource( 42 ), "attack", "idle", SubResource( 43 ), "walk", "attack", SubResource( 44 ), "roll", "idle", SubResource( 50 ), "idle", "roll", SubResource( 51 ), "walk", "roll", SubResource( 52 ), "idle", "chug", SubResource( 54 ), "chug", "idle", SubResource( 55 ), "roll", "walk", SubResource( 56 ), "attack", "walk", SubResource( 57 ) ]
 start_node = "idle"
+graph_offset = Vector2( -64, -117 )

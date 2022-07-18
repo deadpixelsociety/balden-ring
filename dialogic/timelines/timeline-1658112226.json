@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658108854.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I should explain something else, since I know you were wondering.\n\nWhy my name and Ciliara's are similar.\n\n...\n\nYes you were. Stop acting like you weren't.\n\nThe reason is simple; her mother, Ciliaia, before the parting, was the patroness of all stylists. I am the product of that enterprise.\n\nI'm sure that clears everything up and nobody is confused anymore.\n\nAnyhow good luck."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658112226.json",
+		"name": "ciliana-3"
+	}
+}

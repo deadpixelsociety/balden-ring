@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658108854.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Vargas is a fearsome warrior.\n\nWhen Barbus the Strandbearer approached him, offering in charity to trim his ragged mane, Vargas replied only with opportunist violence.\n\nFor many it would have been folly. But Vargas was mightier than any would have dared believe.\n\nAs his prize for winning their earth-shaking battle, Vargas took both the Strand, as well as Barbus's Grand Shears. The Shears have the power to cut Strands, and Barbus once used them to maintain the Divine Crown.\n\nDespite this, Vargas eschews their use. He is confident in his own martial might. Along with his hair, it has only grown since he became a Strandbearer.\n\nDefeat him, and the way to the Divine Crown will open.\n\nWe have come far, Balden One. There are few steps left."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658112761.json",
+		"name": "ciliana-7"
+	}
+}

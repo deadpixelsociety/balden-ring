@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://entities/weapons/weapon_def.gd" type="Script" id=1]
+[ext_resource path="res://assets/gfx/weapons/razor.png" type="Texture" id=2]
+[ext_resource path="res://entities/weapons/razor_hitbox.tres" type="Shape2D" id=3]
+
+[resource]
+script = ExtResource( 1 )
+display_name = "Razor"
+texture = ExtResource( 2 )
+pivot_point = Vector2( 52, 0 )
+hitbox = ExtResource( 3 )
+hitbox_offset = Vector2( 65, -5 )
+hitbox_angle = 75.0
+attack_speed = 3.0
+attack_angle = 33.0
+stamina_cost = 5.0
+swing_time = 0.2
+damage_min = 6.0
+damage_max = 10.0
+crit_chance = 0.05
+crit_multi = 1.5
+knockback_power = 0.15
+weapon_scale = Vector2( 0.7, 0.7 )

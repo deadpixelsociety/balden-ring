@@ -1,0 +1,285 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/sfx/balden_ring_intro_va.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/fonts/edensor_intro.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/deutsch_intro.tres" type="DynamicFont" id=3]
+[ext_resource path="res://intro/intro.gd" type="Script" id=4]
+[ext_resource path="res://assets/gfx/fade_top.png" type="Texture" id=5]
+[ext_resource path="res://assets/gfx/fade_bottom.png" type="Texture" id=6]
+[ext_resource path="res://assets/gfx/oh_balden_ring.png" type="Texture" id=7]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[node name="Intro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎The lost hair tells a story.
+
+The great Divine Crown was parted.
+
+Now, Lord Fibrus is nowhere to be found,
+
+And in the Night of Gray Hair, Baldwyn the Golden was the first to shed.
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+Soon, Fibrus's offspring, grand stylists all, claimed their strands of the Divine Crown, and triggered the Parting.
+‎ 
+‎ 
+‎‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+A war leading to abandonment by the Great Filament.
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+[b]Arise now, ye Balden!
+
+Ye hairless, who yet live![/b]
+‎ 
+‎ 
+‎ 
+The call of long-lost hair speaks to us all.
+‎ 
+‎ 
+‎ 
+‎ 
+Vargas, the vagabond warrior.
+
+The ever-stylish Ciliara.
+
+The fearsome Barber.
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎‎ 
+‎‎ 
+‎‎ 
+‎‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+And one other. Whose head might once again be blessed.
+‎ 
+‎ 
+‎ 
+‎ 
+‎‎ 
+‎ 
+‎ 
+‎ 
+
+‎‎ 
+‎‎ 
+A Balden, of no renown.
+‎ 
+‎‎ 
+‎ 
+‎ 
+‎ 
+‎‎ 
+Stand before the Divine Crown,
+
+and become 
+
+[b]the Balden Lord![/b]
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+[/center]	"
+text = "
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎The lost hair tells a story.
+
+The great Divine Crown was parted.
+
+Now, Lord Fibrus is nowhere to be found,
+
+And in the Night of Gray Hair, Baldwyn the Golden was the first to shed.
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+Soon, Fibrus's offspring, grand stylists all, claimed their strands of the Divine Crown, and triggered the Parting.
+‎ 
+‎ 
+‎‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+A war leading to abandonment by the Great Filament.
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+Arise now, ye Balden!
+
+Ye hairless, who yet live!
+‎ 
+‎ 
+‎ 
+The call of long-lost hair speaks to us all.
+‎ 
+‎ 
+‎ 
+‎ 
+Vargas, the vagabond warrior.
+
+The ever-stylish Ciliara.
+
+The fearsome Barber.
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎‎ 
+‎‎ 
+‎‎ 
+‎‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+And one other. Whose head might once again be blessed.
+‎ 
+‎ 
+‎ 
+‎ 
+‎‎ 
+‎ 
+‎ 
+‎ 
+
+‎‎ 
+‎‎ 
+A Balden, of no renown.
+‎ 
+‎‎ 
+‎ 
+‎ 
+‎ 
+‎‎ 
+Stand before the Divine Crown,
+
+and become 
+
+the Balden Lord!
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+	"
+scroll_active = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FadeTop" type="TextureRect" parent="."]
+anchor_right = 1.0
+rect_min_size = Vector2( 0, 128 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="FadeBottom" type="TextureRect" parent="."]
+anchor_top = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 128 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+
+[node name="Intro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+bus = "Music"
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="BaldenRing" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.15 )
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6

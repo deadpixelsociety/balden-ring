@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658108854.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Balden One ... when you reach the Divine Crown, as I believe you will, I know you will do what is right.\n\nThis land is fraying. Decaying. Restoration of the Strands can return us to the will of the Great Filament.\n\nIf you have the capacity to defeat Vargas, and return the Strands, then I know you can do this.\n\nIt is not much farther now. Stay firm of purpose, Balden One, and be strong."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658112674.json",
+		"name": "ciliana-6"
+	}
+}

@@ -1,19 +1,30 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://entities/the_balden/the_balden.gd" type="Script" id=1]
-[ext_resource path="res://assets/characters/the_balden/the_balden.png" type="Texture" id=2]
-[ext_resource path="res://entities/weapons/sword_def.tres" type="Resource" id=3]
+[ext_resource path="res://assets/gfx/characters/the_balden/the_balden.png" type="Texture" id=2]
+[ext_resource path="res://entities/weapons/razor_def.tres" type="Resource" id=3]
 [ext_resource path="res://entities/character_animation_tree.tres" type="AnimationNodeStateMachine" id=4]
-[ext_resource path="res://assets/animations/characters/idle_down.tres" type="Animation" id=5]
-[ext_resource path="res://assets/animations/characters/idle_left.tres" type="Animation" id=6]
-[ext_resource path="res://entities/the_balden/item_pickup.gd" type="Script" id=7]
-[ext_resource path="res://assets/animations/characters/attack_down.tres" type="Animation" id=8]
-[ext_resource path="res://assets/animations/characters/attack_up.tres" type="Animation" id=9]
-[ext_resource path="res://assets/animations/characters/attack_right.tres" type="Animation" id=10]
-[ext_resource path="res://assets/animations/characters/attack_left.tres" type="Animation" id=11]
+[ext_resource path="res://assets/gfx/animations/characters/idle_down.tres" type="Animation" id=5]
+[ext_resource path="res://assets/gfx/animations/characters/idle_left.tres" type="Animation" id=6]
+[ext_resource path="res://entities/the_balden/interaction_radius.gd" type="Script" id=7]
+[ext_resource path="res://assets/gfx/animations/characters/attack_down.tres" type="Animation" id=8]
+[ext_resource path="res://assets/gfx/animations/characters/attack_up.tres" type="Animation" id=9]
+[ext_resource path="res://assets/gfx/animations/characters/attack_right.tres" type="Animation" id=10]
+[ext_resource path="res://assets/gfx/animations/characters/attack_left.tres" type="Animation" id=11]
+[ext_resource path="res://assets/gfx/characters/the_balden/the_balden_roll.png" type="Texture" id=12]
+[ext_resource path="res://assets/gfx/flash_bang.png" type="Texture" id=13]
+[ext_resource path="res://assets/fonts/edensor_gold_24.tres" type="DynamicFont" id=14]
+[ext_resource path="res://assets/gfx/shadow.png" type="Texture" id=15]
+[ext_resource path="res://assets/shaders/whiteout.gdshader" type="Shader" id=16]
+[ext_resource path="res://assets/gfx/square.png" type="Texture" id=17]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
+
+[sub_resource type="ShaderMaterial" id=38]
+shader = ExtResource( 16 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/amount = 0.0
 
 [sub_resource type="Animation" id=31]
 length = 0.001
@@ -28,6 +39,57 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RollSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "chug"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RollSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 54, 55, 56, 57, 58, 59, 55, 54 ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -53,6 +115,30 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RollSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -87,6 +173,242 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RollSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "roll_down"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RollSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RollSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RollSprite:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "roll_left"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RollSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RollSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RollSprite:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "roll_right"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RollSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RollSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RollSprite:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "roll_up"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RollSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RollSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RollSprite:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=24]
 resource_name = "walk_down"
@@ -111,6 +433,30 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RollSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -145,6 +491,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RollSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=28]
 resource_name = "walk_right"
@@ -169,6 +539,30 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RollSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -203,11 +597,66 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RollSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
 [sub_resource type="CircleShape2D" id=30]
-radius = 128.0
+radius = 48.0
+
+[sub_resource type="CapsuleShape2D" id=37]
+height = 40.0
+
+[sub_resource type="Gradient" id=40]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=41]
+gradient = SubResource( 40 )
+
+[sub_resource type="Curve" id=42]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.508333 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=43]
+curve = SubResource( 42 )
+
+[sub_resource type="ParticlesMaterial" id=39]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 33.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 150.0
+initial_velocity_random = 0.5
+angular_velocity = 200.0
+angular_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 43 )
+color_ramp = SubResource( 41 )
+hue_variation = 1.0
+hue_variation_random = 0.5
 
 [node name="TheBalden" type="KinematicBody2D" groups=["player"]]
 collision_mask = 14
@@ -221,9 +670,16 @@ position = Vector2( 0, 16 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 38 )
 texture = ExtResource( 2 )
+flip_h = true
 hframes = 18
-vframes = 3
+vframes = 4
+
+[node name="RollSprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 12 )
+hframes = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 31 )
@@ -231,10 +687,15 @@ anims/attack_down = ExtResource( 8 )
 anims/attack_left = ExtResource( 11 )
 anims/attack_right = ExtResource( 10 )
 anims/attack_up = ExtResource( 9 )
+anims/chug = SubResource( 36 )
 anims/idle_down = ExtResource( 5 )
 anims/idle_left = ExtResource( 6 )
 anims/idle_right = SubResource( 18 )
 anims/idle_up = SubResource( 17 )
+anims/roll_down = SubResource( 32 )
+anims/roll_left = SubResource( 34 )
+anims/roll_right = SubResource( 33 )
+anims/roll_up = SubResource( 35 )
 anims/walk_down = SubResource( 24 )
 anims/walk_left = SubResource( 29 )
 anims/walk_right = SubResource( 28 )
@@ -246,32 +707,66 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 15 )
 parameters/attack/blend_position = Vector2( 0.669925, -0.135331 )
-parameters/idle/blend_position = Vector2( -0.00166947, 0.984211 )
-parameters/walk/blend_position = Vector2( 0.513784, -0.439249 )
+parameters/idle/blend_position = Vector2( -1.1, 0 )
+parameters/roll/blend_position = Vector2( 0.154299, -0.160265 )
+parameters/walk/blend_position = Vector2( -1.09602, 0.0141935 )
 
-[node name="Pivots" type="Node2D" parent="."]
+[node name="WeaponPivot" type="Node2D" parent="."]
+position = Vector2( 0, 4 )
 
-[node name="WeaponPivotDown" type="Node2D" parent="Pivots"]
-position = Vector2( -8, 8 )
-
-[node name="WeaponPivotUp" type="Node2D" parent="Pivots"]
-position = Vector2( 8, 8 )
-z_index = -1
-
-[node name="WeaponPivotRight" type="Node2D" parent="Pivots"]
-position = Vector2( 8, 8 )
-
-[node name="WeaponPivotLeft" type="Node2D" parent="Pivots"]
-position = Vector2( -8, 8 )
-z_index = -1
-
-[node name="ItemPickup" type="Area2D" parent="."]
-visible = false
+[node name="InteractionRadius" type="Area2D" parent="."]
 collision_layer = 64
-collision_mask = 8
+collision_mask = 264
 input_pickable = false
 monitoring = false
 script = ExtResource( 7 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickup"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRadius"]
 shape = SubResource( 30 )
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+position = Vector2( -3, -25 )
+texture = ExtResource( 13 )
+color = Color( 1, 0.952941, 0.858824, 1 )
+energy = 0.9
+
+[node name="Shadow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+position = Vector2( 0, 32 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -2
+texture = ExtResource( 15 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 0, 3 )
+shape = SubResource( 37 )
+
+[node name="LevelUp" type="Label" parent="."]
+visible = false
+margin_left = -54.5
+margin_top = -70.0
+margin_right = 54.5
+margin_bottom = -40.0
+custom_colors/font_color = Color( 0.870588, 0.698039, 0.0784314, 1 )
+custom_fonts/font = ExtResource( 14 )
+text = "LEVEL UP!"
+align = 1
+valign = 1
+
+[node name="LevelUpParty" type="Particles2D" parent="."]
+z_index = -1
+emitting = false
+amount = 64
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.8
+local_coords = false
+process_material = SubResource( 39 )
+texture = ExtResource( 17 )
+
+[node name="Tween" type="Tween" parent="."]

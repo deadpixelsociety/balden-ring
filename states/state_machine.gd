@@ -1,6 +1,7 @@
 extends Node
 class_name StateMachine
 
+export(bool) var active = true
 export(NodePath) var default_state_path = null
 export(NodePath) var target_path = null
 
@@ -13,11 +14,26 @@ onready var _target := get_node_or_null(target_path)
 
 func _ready():
 	_connect_children()
+	set_default_state()
+
+
+func _process(delta: float):
+	if _current_state and active:
+		_current_state.execute(delta)
+
+
+func _physics_process(delta: float):
+	if _current_state and active:
+		_current_state.execute_physics(delta)
 
 
 func set_default_state():
 	if _default_state:
 		_change_state(_default_state)
+
+
+func change_state(new_state: String):
+	_on_change_state(new_state)
 
 
 func _connect_children():
@@ -33,10 +49,8 @@ func _connect_children():
 func _change_state(state: State):
 	if _current_state:
 		_current_state.exit_state()
-		_current_state.disable_state()
 	if state:
 		_current_state = state
-		_current_state.enable_state()
 		_current_state.enter_state()
 	else:
 		_current_state = null

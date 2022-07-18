@@ -1,0 +1,21 @@
+{
+	"color": "#ffcd7c1d",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1658108854.json",
+	"mirror_portraits": false,
+	"name": "The Balden",
+	"nickname": "Balden One, Balden",
+	"nickname_bool": true,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/gfx/characters/the_balden/portrait.png"
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

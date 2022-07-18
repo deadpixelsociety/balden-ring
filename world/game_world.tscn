@@ -1,40 +1,381 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://world/game_world.gd" type="Script" id=1]
-[ext_resource path="res://entities/the_balden/the_balden.tscn" type="PackedScene" id=2]
-[ext_resource path="res://entities/pickups/strands/strands.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/fonts/boss_title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/large_display_text.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/deutsch_24_white_outline.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/fonts/item_label.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/fonts/deutsch_12_white_outline.tres" type="DynamicFont" id=5]
+[ext_resource path="res://world/parking_lot/parking_lot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/gfx/items/flask.png" type="Texture" id=7]
+[ext_resource path="res://world/boss_info.gd" type="Script" id=8]
+[ext_resource path="res://world/game_world.gd" type="Script" id=9]
+[ext_resource path="res://world/items_container.gd" type="Script" id=10]
+[ext_resource path="res://world/large_text_display.gd" type="Script" id=11]
+[ext_resource path="res://world/life_container.gd" type="Script" id=12]
+[ext_resource path="res://assets/gfx/pickups/brownstrands.png" type="Texture" id=13]
+[ext_resource path="res://assets/gfx/ui/bar_bg.png" type="Texture" id=14]
+[ext_resource path="res://assets/gfx/ui/life_bar.png" type="Texture" id=15]
+[ext_resource path="res://assets/gfx/ui/boss_life_bar.png" type="Texture" id=16]
+[ext_resource path="res://assets/gfx/box.png" type="Texture" id=17]
+[ext_resource path="res://assets/gfx/ui/stamina_bar.png" type="Texture" id=18]
+[ext_resource path="res://world/strands_container.gd" type="Script" id=19]
+[ext_resource path="res://world/stamina_container.gd" type="Script" id=20]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 1, 32 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.501961 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.870588, 0.698039, 0.0784314, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 4
 
 [node name="GameWorld" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource( 9 )
+
+[node name="PlayerStorage" type="Node2D" parent="."]
+position = Vector2( 0, 240 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2( 0, 240 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+process_mode = 0
 smoothing_enabled = true
+editor_draw_limits = true
 
-[node name="Entities" type="YSort" parent="."]
+[node name="Level" type="Node2D" parent="."]
 
-[node name="TheBalden" parent="Entities" instance=ExtResource( 2 )]
-position = Vector2( 160, 208 )
+[node name="ParkingLot" parent="Level" instance=ExtResource( 6 )]
+level_size = Rect2( -128, -128, 896, 608 )
 
-[node name="Strands" parent="Entities" instance=ExtResource( 3 )]
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 10
 
-[node name="Strands2" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 40, -32 )
+[node name="UI" type="Control" parent="UILayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Strands3" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 72, 8 )
+[node name="StrandsContainer" type="HBoxContainer" parent="UILayer/UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -65.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = 40.0
+grow_horizontal = 0
+custom_constants/separation = 8
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Strands4" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 40, 16 )
+[node name="Control" type="Control" parent="UILayer/UI/StrandsContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
 
-[node name="Strands5" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 0, -32 )
+[node name="TextureRect" type="TextureRect" parent="UILayer/UI/StrandsContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 4
 
-[node name="Strands6" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 24, -8 )
+[node name="TextureRect2" type="NinePatchRect" parent="UILayer/UI/StrandsContainer/Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 17 )
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
 
-[node name="Strands7" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 40, -8 )
+[node name="StandsCount" type="Label" parent="UILayer/UI/StrandsContainer"]
+margin_left = 48.0
+margin_top = 6.0
+margin_right = 65.0
+margin_bottom = 33.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.803922, 0.486275, 0.113725, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 2
 
-[node name="Strands8" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 64, -24 )
+[node name="ConditionDisplay" type="VBoxContainer" parent="UILayer/UI"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LifeContainer" type="HBoxContainer" parent="UILayer/UI/ConditionDisplay"]
+margin_right = 174.0
+margin_bottom = 20.0
+script = ExtResource( 12 )
+
+[node name="Life" type="Label" parent="UILayer/UI/ConditionDisplay/LifeContainer"]
+margin_right = 70.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 70, 0 )
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.709804, 0.0470588, 0, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Life"
+valign = 1
+
+[node name="LifeBar" type="PanelContainer" parent="UILayer/UI/ConditionDisplay/LifeContainer"]
+margin_left = 74.0
+margin_right = 174.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 16 )
+size_flags_horizontal = 0
+custom_styles/panel = SubResource( 1 )
+
+[node name="BG" type="NinePatchRect" parent="UILayer/UI/ConditionDisplay/LifeContainer/LifeBar"]
+margin_right = 100.0
+margin_bottom = 20.0
+texture = ExtResource( 17 )
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="FG" type="TextureRect" parent="UILayer/UI/ConditionDisplay/LifeContainer/LifeBar"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 0
+texture = ExtResource( 15 )
+expand = true
+
+[node name="Tween" type="Tween" parent="UILayer/UI/ConditionDisplay/LifeContainer"]
+
+[node name="StaminaContainer" type="HBoxContainer" parent="UILayer/UI/ConditionDisplay"]
+margin_top = 24.0
+margin_right = 174.0
+margin_bottom = 44.0
+script = ExtResource( 20 )
+
+[node name="Stamina" type="Label" parent="UILayer/UI/ConditionDisplay/StaminaContainer"]
+margin_right = 70.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 70, 0 )
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.054902, 0.596078, 0.207843, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Stamina"
+valign = 1
+
+[node name="StaminaBar" type="PanelContainer" parent="UILayer/UI/ConditionDisplay/StaminaContainer"]
+margin_left = 74.0
+margin_right = 174.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 16 )
+size_flags_horizontal = 0
+custom_styles/panel = SubResource( 1 )
+
+[node name="BG" type="NinePatchRect" parent="UILayer/UI/ConditionDisplay/StaminaContainer/StaminaBar"]
+margin_right = 100.0
+margin_bottom = 20.0
+texture = ExtResource( 17 )
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="FG" type="TextureRect" parent="UILayer/UI/ConditionDisplay/StaminaContainer/StaminaBar"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 1
+
+[node name="Tween" type="Tween" parent="UILayer/UI/ConditionDisplay/StaminaContainer"]
+
+[node name="HairContainer" type="HBoxContainer" parent="UILayer/UI/ConditionDisplay"]
+margin_top = 48.0
+margin_right = 174.0
+margin_bottom = 68.0
+
+[node name="Hair" type="Label" parent="UILayer/UI/ConditionDisplay/HairContainer"]
+margin_right = 70.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 70, 0 )
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.803922, 0.486275, 0.113725, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Hair"
+valign = 1
+
+[node name="HairBar" type="PanelContainer" parent="UILayer/UI/ConditionDisplay/HairContainer"]
+margin_left = 74.0
+margin_right = 174.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 16 )
+size_flags_horizontal = 0
+custom_styles/panel = SubResource( 1 )
+
+[node name="BG" type="NinePatchRect" parent="UILayer/UI/ConditionDisplay/HairContainer/HairBar"]
+margin_right = 100.0
+margin_bottom = 20.0
+texture = ExtResource( 17 )
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="BossInfo" type="Control" parent="UILayer/UI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -288.0
+margin_top = -48.0
+margin_right = 288.0
+rect_min_size = Vector2( 0, 48 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BossHealthBar" type="ProgressBar" parent="UILayer/UI/BossInfo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = -16.0
+margin_right = 288.0
+margin_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 0, 32 )
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 2 )
+value = 90.0
+percent_visible = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BossName" type="Label" parent="UILayer/UI/BossInfo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = -20.0
+margin_right = 288.0
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_colors/font_color = Color( 1, 0.905882, 0.572549, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Ciliara, the Silken Lock"
+align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tween" type="Tween" parent="UILayer/UI/BossInfo"]
+
+[node name="LargeTextDisplay" type="Control" parent="UILayer/UI"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 0, 240 )
+script = ExtResource( 11 )
+
+[node name="TextureRect" type="TextureRect" parent="UILayer/UI/LargeTextDisplay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 14 )
+expand = true
+
+[node name="Label" type="Label" parent="UILayer/UI/LargeTextDisplay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="Tween" type="Tween" parent="UILayer/UI/LargeTextDisplay"]
+
+[node name="ItemsContainer" type="HBoxContainer" parent="UILayer/UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -56.0
+margin_right = 40.0
+margin_bottom = -16.0
+script = ExtResource( 10 )
+
+[node name="Item1" type="Control" parent="UILayer/UI/ItemsContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UILayer/UI/ItemsContainer/Item1"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 17 )
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="TextureRect" type="TextureRect" parent="UILayer/UI/ItemsContainer/Item1"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 4
+
+[node name="Uses" type="Label" parent="UILayer/UI/ItemsContainer/Item1"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -21.0
+custom_colors/font_color = Color( 0.803922, 0.486275, 0.113725, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "3"
+align = 1
+valign = 1
+
+[node name="Key" type="Label" parent="UILayer/UI/ItemsContainer/Item1"]
+margin_left = 18.0
+margin_top = -20.0
+margin_bottom = -20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "1"
+align = 1
+valign = 1

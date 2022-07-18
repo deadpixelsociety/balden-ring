@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658108854.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1658112302.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It is done. Without her, her employees will be rid of their idolatrous obsession, and find gainful employ elsewhere.\n\nThere is but one Strandbearer remaining. Vargas, another outsider.\n\nNeither Balden nor an original Strandbearer. Something else entirely: a rejector of charity, and order. Vagrant and warrior both.\n\nHis followers keep to a healthy distance from him, picking over the remains of his battles. The Scalpers have honor amongst themselves, but for an outsider like you, they will covet the Strands you carry.\n\nYour journey is nearly at its end, Balden One, but be wary."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658112558.json",
+		"name": "ciliana-4"
+	}
+}

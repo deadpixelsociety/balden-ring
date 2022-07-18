@@ -12,7 +12,7 @@ func _init():
 	state_name = "wander"
 
 
-func _process(delta: float):
+func execute(delta: float):
 	if _wander_timer <= 0.0:
 		_wander_timer = 0.0
 		if target:

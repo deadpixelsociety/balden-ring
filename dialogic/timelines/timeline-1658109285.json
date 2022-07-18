@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658108854.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Greetings, Balden one. I am Ciliana, a stylist. I serve the will of the great Filament, now lost to this land.\n\nThou, it seems, are hairless. And I, clientless.\n\nSome would deem it folly, to tend to one such as thee. But you are no ordinary Balden. You seek the Divine Crown. With its power comes hair abundant.\n\nMake no mistake, this realm is broken. The powerful covet what they have, and guard it jealously from interlopers. \n\nI would tend the Divine Crown, and ensure its prosperity. I, however, lack a worthy client.\n\nThou hast already claimed three of the Crown Strands. There are yet two more to be attained, before the way to the Divine Crown is made full. With all the strands reunited, the Divine Crown can be repaired, and with it, this realm.\n\nIf you acquire those Crown Strands, you may well be the client I seek.\n\nI see you have also acquired lesser strands on the way here. Hair may not grow upon thine pate, but these are strands of another kind. I can help you turn those soul strands into strength. You will need that strength for the final two Strandbearers.\n\nInside is Ciliara's Salon. Her employees are all skilled combatants, who follow her with homicidal, fashionista fervor. \n\nOh? You noticed our names are similar? I assure you, it is of no consequence. I will not be explaining it.\n\nFortune be with you, Balden one. May we meet again."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658109285.json",
+		"name": "ciliana-1"
+	}
+}

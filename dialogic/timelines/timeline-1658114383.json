@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658108854.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okay\n\nWhat the fuck.\n\nAll fucking game.\n\nALL FUCKING GAME.\n\nI've been here, holding your little bald baby hand.\n\nSpoonfeeding you lore like a mother trying to keep her imbecilic child from starving to death by its own idiocy.\n\nI helped you LEVEL UP, you UNGRATEFUL FUCKFACE, and this is how you repay me? By undoing my life's work?\n\nNo. You know what? \n\nIt's my fault. Really. For helping a psychopathic, homicidal, bald lunatic with a pair of scissors stab a bunch of hairdressers and hobos to death. I brought this on myself.\n\nUnbelievable.\n\nUn-fucking-believable.\n\nI hope you're happy, asshole.\n\n...\n\nThis isn't over.\n\nThis is NOT over."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658114383.json",
+		"name": "ending-2"
+	}
+}

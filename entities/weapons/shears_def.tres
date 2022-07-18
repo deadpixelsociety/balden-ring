@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://entities/weapons/weapon_def.gd" type="Script" id=1]
+[ext_resource path="res://assets/gfx/weapons/shears.png" type="Texture" id=2]
+[ext_resource path="res://entities/weapons/shears_hitbox.tres" type="Shape2D" id=3]
+
+[resource]
+script = ExtResource( 1 )
+display_name = "Shears"
+texture = ExtResource( 2 )
+pivot_point = Vector2( 48, 0 )
+hitbox = ExtResource( 3 )
+hitbox_offset = Vector2( 0, 0 )
+hitbox_angle = 0.0
+attack_speed = 20.0
+attack_angle = 33.0
+swing_time = 0.15
+damage_min = 4.0
+damage_max = 8.0
+crit_chance = 0.05
+crit_multi = 1.5
+knockback_power = 0.15

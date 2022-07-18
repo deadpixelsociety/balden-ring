@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GIGA_BOSS_OF_HELL_FINAL_SMILE.mp3-6e9156e171979fd2a36435e7c5e63996.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/GIGA_BOSS_OF_HELL_FINAL_SMILE.mp3"
+dest_files=[ "res://.import/GIGA_BOSS_OF_HELL_FINAL_SMILE.mp3-6e9156e171979fd2a36435e7c5e63996.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

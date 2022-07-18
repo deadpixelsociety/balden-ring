@@ -1,0 +1,89 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658108854.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Uhh...\n\nThat's not exactly what I expected.\n\nI think... he was just a homeless guy.\n\nA really big homeless guy.\n\n...\n\n...\n\nAre we murderers?\n\n...\n\nAnywayyyyyyyyyyyyyyyyyyyyy\n\nThat is the final Strand, Balden One. Only you can go ahead from here, but I will be with you in spirit. Once the Crown is repaired, I will offer you my services as Stylist in truth.\n\nMay we receive the will of the Great Filament again once more."
+		},
+		{
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "What will you do, Balden One?"
+		},
+		{
+			"choice": "REPAIR THE DIVINE CROWN AND RECEIVE HAIR ABUNDANT",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"change_timeline": "timeline-1658114263.json",
+			"event_id": "dialogic_020"
+		},
+		{
+			"choice": "SEVER THE STRANDS AND BECOME BALDEN LORD",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"change_timeline": "timeline-1658114383.json",
+			"event_id": "dialogic_020"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658113207.json",
+		"name": "ciliana-8"
+	}
+}

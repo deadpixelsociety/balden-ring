@@ -3,8 +3,8 @@
 [sub_resource type="ProceduralSky" id=1]
 
 [resource]
-background_mode = 2
 background_sky = SubResource( 1 )
-glow_enabled = true
-glow_hdr_threshold = 1.5
+background_color = Color( 0.588235, 0.345098, 0.345098, 1 )
+background_canvas_max_layer = 20
+glow_intensity = 2.0
 glow_high_quality = true

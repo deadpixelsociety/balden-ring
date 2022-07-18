@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658108854.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1658109022.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Fear not, Balden one. As long as you stay by this fire, they will not bother you. Their hair is soaked in product, and highly flammable.\n\nI would speak to thee further of this land, if you will listen.\n\nAfter Baldwyn the Golden shed his hair, the original Strandbearers separated. Fearing for their own appearance, they pilfered from the Divine Crown, praying that it might grant them eternal abundance.\n\nCiliaia, mother to a fashion empire, who sold the promise of volume, bounce, and shine.\n\nBaldheim the grafted, son of Baldwyn, who so feared for his own hair that he became a monstrous chimera of surgeries, extensions, and toupees.\n\nFibril the inheritor. Son of Fibrus, who did not care about hair at all and had no idea what was going on most of the time.\n\nBurnside the heretic, who saw no division between the hair of the chin, and hair of the scalp.\n\nBarbus, the keeper, who believed power came from discipline, maintenance, and order. His strand was taken from him by Vargas, who eschewed such things.\n\nYou are not going to be meeting any of these people.\n\nYou're also not going to remember any of that until somebody makes a YouTube video explaining all of it.\n\nCiliaia's daughter, Ciliara, runs this salon. She inherited her mother's Strand and sense of fashion, but not her capacity for business. You will be meeting her soon; I hope you are prepared."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658111902.json",
+		"name": "ciliana-2"
+	}
+}

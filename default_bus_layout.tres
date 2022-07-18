@@ -1,0 +1,33 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=2]
+
+[sub_resource type="AudioEffectLimiter" id=4]
+resource_name = "Limiter"
+ceiling_db = -10.0
+
+[sub_resource type="AudioEffectPitchShift" id=3]
+resource_name = "PitchShift"
+pitch_scale = 0.85
+
+[resource]
+bus/1/name = "Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = "Master"
+bus/1/effect/0/effect = SubResource( 4 )
+bus/1/effect/0/enabled = true
+bus/2/name = "Sound"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = "Master"
+bus/3/name = "Ciliara"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = "Sound"
+bus/3/effect/0/effect = SubResource( 3 )
+bus/3/effect/0/enabled = true

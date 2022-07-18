@@ -8,18 +8,12 @@ var blackboard: Blackboard = null
 var target = null
 
 
-func _ready():
-	disable_state()
+func execute(delta: float):
+	pass
 
 
-func enable_state():
-	set_process(true)
-	set_physics_process(true)
-
-
-func disable_state():
-	set_process(false)
-	set_physics_process(false)
+func execute_physics(delta: float):
+	pass
 
 
 func enter_state():
@@ -31,5 +25,4 @@ func exit_state():
 
 
 func _on_change_state(new_state: String):
-	print("change state to ", new_state)
 	call_deferred("emit_signal", "change_state", new_state)
