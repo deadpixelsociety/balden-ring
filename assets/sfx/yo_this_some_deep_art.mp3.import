@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/yo_this_some_deep_art.mp3-db16246cd79f820e6101a123fcc7619e.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/yo_this_some_deep_art.mp3"
+dest_files=[ "res://.import/yo_this_some_deep_art.mp3-db16246cd79f820e6101a123fcc7619e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

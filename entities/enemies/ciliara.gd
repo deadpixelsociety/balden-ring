@@ -24,6 +24,8 @@ var _velocity = Vector2.ZERO
 var _last_velocity = Vector2.ZERO
 var _projectiles = []
 var _fire_target: Node2D = null
+var _encountered = false
+var _dead = false
 
 onready var _animation_tree := $AnimationTree
 onready var _collision_shape := $CollisionShape2D
@@ -41,6 +43,8 @@ onready var _projectile_spawns = [
 onready var _intro_fx := $INTRO
 onready var _death_fx := $DEATH
 onready var _player_death_fx := $PLAYER_DEATH
+onready var _attack_fx := $AttackFX
+onready var _hurt_fx := $HurtFX
 
 
 func _ready():
@@ -66,7 +70,10 @@ func _process(delta: float):
 
 
 func _integrate_forces(state: Physics2DDirectBodyState):
-	linear_velocity = _velocity
+	if _dead:
+		linear_velocity = Vector2.ZERO
+	else:
+		linear_velocity = _velocity
 
 
 func move(velocity: Vector2):
@@ -96,6 +103,8 @@ func attack(target: Node2D):
 	_attack_ray.force_raycast_update()
 	_attack_delay_timer.start()
 	yield(_attack_delay_timer, "timeout")
+	_attack_fx.pitch_scale = Util.rand_pitch()
+	_attack_fx.play()
 	if _attack_ray.is_colliding():
 		if target.has_method("hit"):
 			target.hit(self, attack_damage)
@@ -104,19 +113,33 @@ func attack(target: Node2D):
 func hit(from: Vector2, damage: WeaponDamage):
 	_hp -= damage.amount
 	_hit_flash_timer = HIT_FLASH_TIME
+	play_random_hurt()
 	EventBus.emit_signal("boss_health_changed", _hp / max_hp)
 	if _hp <= 0.0:
 		kill()
 
 
+func play_random_hurt():
+	var idx = randi() % _hurt_fx.get_child_count()
+	var child = _hurt_fx.get_child(idx)
+	if child and child.stream:
+		child.pitch_scale = Util.rand_pitch()
+		child.play()
+
+
 func kill():
+	_dead = true
+	_state_machine.change_state("float")
 	_state_machine.active = false
+	end_charge()
+	_velocity = Vector2.ZERO
 	_collision_shape.set_deferred("disabled", true)
 	_animation_tree.active = false
 	$AnimationPlayer.play("death")
 	Audio.dampen_audio(Audio.BUS_MUSIC)
 	_death_fx.play()
 	yield(_death_fx, "finished")
+	$ThudFX.play()
 	$Tween.interpolate_property(
 		_sprite,
 		"modulate",
@@ -159,6 +182,8 @@ func start_firing(target: Node2D):
 	_fire_target = target
 	_play_animation("float")
 	_projectiles.clear()
+	_attack_fx.pitch_scale = Util.rand_pitch()
+	_attack_fx.play()
 	for spawn in _projectile_spawns:
 		_spawn_projectile(spawn)
 	for projectile in _projectiles:
@@ -202,17 +227,22 @@ func _play_animation(animation: String):
 
 
 func start_fight():
-	Audio.dampen_audio(Audio.BUS_MUSIC)
-	_collision_shape.set_deferred("disabled", true)
-	_intro_fx.play()	
-	yield(_intro_fx, "finished")
-	Audio.restore_audio(Audio.BUS_MUSIC)
+	if not _encountered:
+		Audio.dampen_audio(Audio.BUS_MUSIC)
+		_collision_shape.set_deferred("disabled", true)
+		_intro_fx.play()
+		yield(_intro_fx, "finished")
+		Audio.restore_audio(Audio.BUS_MUSIC)
 	EventBus.emit_signal("boss_started", "Ciliara, the Silken Lock")
+	yield(get_tree().create_timer(2.5), "timeout")
 	_collision_shape.set_deferred("disabled", false)
+	_state_machine.change_state("float")
 	_state_machine.active = true
+	_encountered = true
 
 
 func end_fight():
+	_state_machine.change_state("float")
 	EventBus.emit_signal("boss_ended", false)
 
 

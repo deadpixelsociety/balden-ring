@@ -10,7 +10,7 @@ func _ready():
 	EventBus.connect("large_text_hide", self, "_on_large_text_hide")
 
 
-func _on_large_text_display(message: String):
+func _on_large_text_display(message: String, delay: float = 0.0):
 	modulate.a = 0.0
 	_label.text = message
 	visible = true
@@ -22,6 +22,11 @@ func _on_large_text_display(message: String):
 		0.5
 	)
 	_tween.start()
+	yield(_tween, "tween_all_completed")
+	if delay > 0.0:
+		yield(get_tree().create_timer(delay), "timeout")
+		_on_large_text_hide()
+		
 
 
 func _on_large_text_hide():
@@ -35,3 +40,4 @@ func _on_large_text_hide():
 	_tween.start()
 	yield(_tween, "tween_all_completed")
 	visible = false
+	EventBus.emit_signal("large_text_hidden")

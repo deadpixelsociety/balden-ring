@@ -42,6 +42,9 @@ shadow_size = 4
 
 [node name="GameWorld" type="Node2D"]
 script = ExtResource( 9 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -320.0 ]
+}
 
 [node name="PlayerStorage" type="Node2D" parent="."]
 position = Vector2( 0, 240 )
@@ -60,7 +63,6 @@ editor_draw_limits = true
 [node name="Level" type="Node2D" parent="."]
 
 [node name="ParkingLot" parent="Level" instance=ExtResource( 6 )]
-level_size = Rect2( -128, -128, 896, 608 )
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 layer = 10
@@ -364,7 +366,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -16.0
 margin_top = -21.0
-custom_colors/font_color = Color( 0.803922, 0.486275, 0.113725, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "3"
 align = 1

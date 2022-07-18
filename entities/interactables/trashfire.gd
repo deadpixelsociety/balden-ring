@@ -12,12 +12,14 @@ onready var _animation_player := $AnimationPlayer
 onready var _sparks := $Sparks
 onready var _ciliana := $Ciliana
 onready var _tween := $Tween
+onready var _sfx := $SFX
 
 
 func interact(user):
 	if not _lit:
 		_light()
 	if user.has_method("rest"):
+		_sfx.play()
 		user.rest()
 		EventBus.emit_signal("trashfire_rest")
 
@@ -28,9 +30,8 @@ func _light():
 	_sparks.visible = true
 	_sparks.emitting = true
 	EventBus.emit_signal("trashfire_lit", self)
-	EventBus.emit_signal("large_text_display", "THE TRASHFIRE IS LIT")
-	yield(get_tree().create_timer(2.5), "timeout")
-	EventBus.emit_signal("large_text_hide")
+	EventBus.emit_signal("large_text_display", "THE TRASHFIRE IS LIT", 1.5)
+	yield(EventBus, "large_text_hidden")
 	if has_ciliana and not _ciliana_interacted:
 		_ciliana_interacted = true
 		_ciliana.modulate.a = 0.0
@@ -57,7 +58,13 @@ func _light():
 			)
 			_tween.start()
 			yield(_tween, "tween_all_completed")
-			_ciliana.visible = true
+			_ciliana.visible = false
+			if dialogue == "ciliana-8" and Util.ending != -1:
+				match Util.ending:
+					1:
+						get_tree().change_scene("res://endings/ending1.tscn")
+					2:
+						get_tree().change_scene("res://endings/ending2.tscn")
 
 
 

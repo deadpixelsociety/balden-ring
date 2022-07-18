@@ -21,7 +21,7 @@ func _physics_process(delta: float):
 
 
 func spawn():
-	_collision_shape.disabled = true
+	_collision_shape.set_deferred("disabled", true)
 	modulate.a = 0.0
 	scale = Vector2.ZERO
 	_tween.interpolate_property(
@@ -47,7 +47,7 @@ func fire(target: Node2D):
 	var distance = dir.length()
 	dir = dir.normalized()
 	_velocty = dir * (distance / fire_time)
-	_collision_shape.disabled = false
+	_collision_shape.set_deferred("disabled", false)
 
 
 func track(target: Node2D):
@@ -58,11 +58,11 @@ func track(target: Node2D):
 
 
 func _on_ShearProjectile_body_entered(body):
-	_velocty = Vector2.ZERO
 	var balden = body as TheBalden
-	if balden:
+	if balden and not balden.is_invulnerable():
+		_velocty = Vector2.ZERO
 		balden.hit(self, damage, 1.5)
-	queue_free()
+		queue_free()
 
 
 func _on_VisibilityNotifier2D_screen_exited():

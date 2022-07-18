@@ -1,0 +1,139 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sfx/yo_this_some_deep_art.mp3" type="AudioStream" id=1]
+[ext_resource path="res://endings/credits.gd" type="Script" id=2]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+bbcode_enabled = true
+bbcode_text = "[center]
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+[b]A
+Team GIGA
+Production[/b][/center]
+
+[center][color=#cc00ff][b]Programming[/b][/color][/center]
+[center][url=\\\"https://twitter.com/deadpxlsociety\\\"]deadpixelsociety[/url][/center]
+
+[center][color=#ffcc00][b]Music and Writing[/b][/color][/center]
+[center][url=\\\"https://twitter.com/ICWobbles\\\"]ICWobbles[/url][/center]
+
+[center][color=#ff00cc][b]Music and Sound[/b][/color][/center]
+[center][url=\\\"https://twitter.com/CutestBichAlive\\\"]CutestBichAlive[/url][/center]
+
+[center][color=#00ccff][b]Art[/b][/color][/center] 
+[center][url=\\\"https://twitter.com/itsmuffnbuttn\\\"]muffnbuttn[/url][/center]
+
+[center][color=#ff0000][b]Once again, Special Thanks[/b][/color][/center] 
+[center]MOONMOON
+Erros
+Vernon
+Everyone and anyone who makes these jams possible
+#game_dev
+#weebs
+‎ 
+‎ 
+‎ 
+[/center]"
+text = "
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+
+‎ 
+‎ 
+‎ 
+‎ 
+‎ 
+A
+Team GIGA
+Production
+
+Programming
+deadpixelsociety
+
+Music and Writing
+ICWobbles
+
+Music and Sound
+CutestBichAlive
+
+Art 
+muffnbuttn
+
+Once again, Special Thanks 
+MOONMOON
+Erros
+Vernon
+Everyone and anyone who makes these jams possible
+#game_dev
+#weebs
+‎ 
+‎ 
+‎ 
+"
+scroll_active = false
+
+[node name="Commentary" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "Sound"
+
+[node name="Tween" type="Tween" parent="."]

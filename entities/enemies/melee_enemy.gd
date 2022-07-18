@@ -25,6 +25,7 @@ onready var _collision_shape := $CollisionShape2D
 onready var _sprite := $Sprite
 onready var _state_machine := $StateMachine
 onready var _tween := $Tween
+onready var _hurt_fx := $HurtFX
 
 
 func _ready():
@@ -78,10 +79,19 @@ func resume():
 func hit(from: Vector2, damage: WeaponDamage):
 	hp -= damage.amount
 	_hit_flash_timer = HIT_FLASH_TIME
+	play_random_hurt()
 	if hp <= 0.0:
 		kill()
 	else:
 		knockback(from, damage.knockback_power)
+
+
+func play_random_hurt():
+	var idx = randi() % _hurt_fx.get_child_count()
+	var child = _hurt_fx.get_child(idx)
+	if child and child.stream:
+		child.pitch_scale = Util.rand_pitch()
+		child.play()
 
 
 func kill():
@@ -89,6 +99,7 @@ func kill():
 		return
 	_dead = true
 	var strands = STRANDS.instance()
+	_on_strands_spawned(strands)
 	strands.global_position = global_position
 	get_parent().call_deferred("add_child", strands)
 	_state_machine.active = false
@@ -103,6 +114,10 @@ func kill():
 	_tween.start()
 	yield(_tween, "tween_all_completed")
 	queue_free()
+
+
+func _on_strands_spawned(strands: Strands):
+	pass
 
 
 func knockback(from: Vector2, knockback_power: float):

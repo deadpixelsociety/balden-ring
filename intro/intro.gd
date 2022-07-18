@@ -41,8 +41,9 @@ func _finish():
 		"modulate:a",
 		1.0,
 		0.0,
-		5.0
+		3.0
 	)
 	_tween.start()
 	yield(_tween, "tween_all_completed")
-	print("finished")
+	get_tree().change_scene("res://world/game_world.tscn")
+	queue_free()

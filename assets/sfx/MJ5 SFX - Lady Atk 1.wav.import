@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MJ5 SFX - Lady Atk 1.wav-9baec8e8f82ee4408401f8ab46684aa0.sample"
+
+[deps]
+
+source_file="res://assets/sfx/MJ5 SFX - Lady Atk 1.wav"
+dest_files=[ "res://.import/MJ5 SFX - Lady Atk 1.wav-9baec8e8f82ee4408401f8ab46684aa0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

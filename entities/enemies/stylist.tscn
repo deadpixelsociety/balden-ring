@@ -1,9 +1,14 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://entities/enemies/stylist.gd" type="Script" id=1]
 [ext_resource path="res://assets/gfx/characters/stylist/stylist.png" type="Texture" id=2]
 [ext_resource path="res://entities/enemies/attack_state.gd" type="Script" id=3]
 [ext_resource path="res://assets/gfx/shadow.png" type="Texture" id=4]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Lady Hurt 1.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Lady Hurt 2.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Lady Hurt 3.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Lady Hurt 6.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Lady Atk 1.wav" type="AudioStream" id=9]
 [ext_resource path="res://entities/enemy_animation_tree.tres" type="AnimationNodeStateMachine" id=10]
 [ext_resource path="res://states/state_machine.gd" type="Script" id=11]
 [ext_resource path="res://entities/enemies/idle_state.gd" type="Script" id=13]
@@ -404,7 +409,7 @@ mode = 2
 gravity_scale = 0.0
 can_sleep = false
 script = ExtResource( 1 )
-attack_damage = 8.0
+attack_damage = 10.0
 move_speed = 80.0
 hp = 50.0
 attack_range = 32.0
@@ -423,6 +428,7 @@ script = ExtResource( 15 )
 [node name="SeekState" type="Node" parent="StateMachine"]
 script = ExtResource( 14 )
 attack_range = 48.0
+seek_speed = 90.0
 sight_radius = 350.0
 
 [node name="AttackState" type="Node" parent="StateMachine"]
@@ -460,6 +466,7 @@ active = true
 parameters/playback = SubResource( 1 )
 parameters/attack/blend_position = Vector2( 0, 0 )
 parameters/idle/blend_position = Vector2( -0.130407, 0.745161 )
+parameters/throw/blend_position = Vector2( 0, 0 )
 parameters/walk/blend_position = Vector2( 0, 0 )
 
 [node name="Shadow" type="Sprite" parent="."]
@@ -481,3 +488,25 @@ wait_time = 0.2
 one_shot = true
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="AttackFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "Sound"
+
+[node name="HurtFX" type="Node2D" parent="."]
+
+[node name="Hurt" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 5 )
+bus = "Sound"
+
+[node name="Hurt2" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 6 )
+bus = "Sound"
+
+[node name="Hurt3" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 7 )
+bus = "Sound"
+
+[node name="Hurt4" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 8 )
+bus = "Sound"

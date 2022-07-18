@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fonts/edensor_intro.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/sfx/ENDING_1_VO.wav" type="AudioStream" id=2]
+[ext_resource path="res://endings/ending1.gd" type="Script" id=3]
+[ext_resource path="res://assets/sfx/balden_ring_intro_song.mp3" type="AudioStream" id=4]
+
+[node name="Ending1" type="Control"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]
+The fallen hair... tells a story...
+
+Of how a Balden One united the severed Strands, and claimed the Divine Crown.
+
+Of how hair grew once more upon his head, in grand and flowing abundance.
+
+Others will look back on us and recall... an age of Hair Growth.
+[/center]"
+text = "
+The fallen hair... tells a story...
+
+Of how a Balden One united the severed Strands, and claimed the Divine Crown.
+
+Of how hair grew once more upon his head, in grand and flowing abundance.
+
+Others will look back on us and recall... an age of Hair Growth.
+"
+scroll_active = false
+
+[node name="VO" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Sound"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Music"
+
+[node name="Tween" type="Tween" parent="."]

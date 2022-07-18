@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://entities/interactables/trashfire.gd" type="Script" id=1]
 [ext_resource path="res://assets/gfx/items/trashfire.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://entities/interactables/interactable.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/gfx/shadow.png" type="Texture" id=5]
 [ext_resource path="res://entities/ciliana/cilian.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Menu Beep.wav" type="AudioStream" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.0
@@ -132,5 +133,11 @@ texture = ExtResource( 5 )
 [node name="Ciliana" parent="." index="6" instance=ExtResource( 6 )]
 visible = false
 position = Vector2( 48, -32 )
+frame = 2
 
 [node name="Tween" type="Tween" parent="." index="7"]
+
+[node name="SFX" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource( 7 )
+pitch_scale = 0.22
+bus = "Sound"

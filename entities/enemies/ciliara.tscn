@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://entities/enemies/ciliara.gd" type="Script" id=1]
 [ext_resource path="res://assets/gfx/characters/ciliara/ciliara.png" type="Texture" id=2]
@@ -13,6 +13,12 @@
 [ext_resource path="res://assets/sfx/CILIARA_FIGHT_INTRO.wav" type="AudioStream" id=11]
 [ext_resource path="res://assets/sfx/CILIARA_PLAYER_DEATH.wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/sfx/CILIARA_ENEMY_DEATH.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Lady Hurt 1.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Lady Hurt 2.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Lady Hurt 3.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Lady Hurt 6.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Lady Atk 1.wav" type="AudioStream" id=18]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Thud or Roll.wav" type="AudioStream" id=19]
 
 [sub_resource type="ShaderMaterial" id=36]
 shader = ExtResource( 6 )
@@ -623,6 +629,7 @@ can_sleep = false
 script = ExtResource( 1 )
 attack_damage = 15.0
 move_speed = 100.0
+max_hp = 600.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -643,6 +650,8 @@ seek_speed = 225.0
 sight_radius = 175.0
 idle_state = "float"
 can_fire = true
+fire_range_min = 175.0
+fire_delay = 0.0
 
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource( 8 )
@@ -655,10 +664,27 @@ script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 36 )
-position = Vector2( 0, -4.4229 )
+position = Vector2( 0, -7.41679 )
 texture = ExtResource( 2 )
 hframes = 15
 frame = 10
+
+[node name="ShearSpawns" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Spawn1" type="Node2D" parent="ShearSpawns"]
+position = Vector2( -48, -16 )
+
+[node name="Spawn2" type="Node2D" parent="ShearSpawns"]
+position = Vector2( -32, 8 )
+
+[node name="Spawn3" type="Node2D" parent="ShearSpawns"]
+position = Vector2( 32, 8 )
+
+[node name="Spawn4" type="Node2D" parent="ShearSpawns"]
+position = Vector2( 48, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 16 )
@@ -706,23 +732,6 @@ collide_with_bodies = false
 [node name="AttackDelayTimer" type="Timer" parent="."]
 wait_time = 0.6
 
-[node name="ShearSpawns" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Spawn1" type="Node2D" parent="ShearSpawns"]
-position = Vector2( -48, -16 )
-
-[node name="Spawn2" type="Node2D" parent="ShearSpawns"]
-position = Vector2( -32, 8 )
-
-[node name="Spawn3" type="Node2D" parent="ShearSpawns"]
-position = Vector2( 32, 8 )
-
-[node name="Spawn4" type="Node2D" parent="ShearSpawns"]
-position = Vector2( 48, -16 )
-
 [node name="FireDelayTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
@@ -740,5 +749,31 @@ stream = ExtResource( 12 )
 bus = "Ciliara"
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="AttackFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+bus = "Ciliara"
+
+[node name="ThudFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+bus = "Sound"
+
+[node name="HurtFX" type="Node2D" parent="."]
+
+[node name="Hurt" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 14 )
+bus = "Ciliara"
+
+[node name="Hurt2" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 15 )
+bus = "Ciliara"
+
+[node name="Hurt3" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 16 )
+bus = "Ciliara"
+
+[node name="Hurt4" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 17 )
+bus = "Ciliara"
 
 [connection signal="body_entered" from="." to="." method="_on_Ciliara_body_entered"]

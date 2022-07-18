@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MJ5 SFX - Hurt 1.wav-e63f8e7592b9d1873502a5b0fc2636e0.sample"
+
+[deps]
+
+source_file="res://assets/sfx/MJ5 SFX - Hurt 1.wav"
+dest_files=[ "res://.import/MJ5 SFX - Hurt 1.wav-e63f8e7592b9d1873502a5b0fc2636e0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

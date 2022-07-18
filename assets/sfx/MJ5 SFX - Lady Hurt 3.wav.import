@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MJ5 SFX - Lady Hurt 3.wav-19c1bef825c5575b4a9f713002079336.sample"
+
+[deps]
+
+source_file="res://assets/sfx/MJ5 SFX - Lady Hurt 3.wav"
+dest_files=[ "res://.import/MJ5 SFX - Lady Hurt 3.wav-19c1bef825c5575b4a9f713002079336.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

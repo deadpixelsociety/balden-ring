@@ -12,7 +12,7 @@ onready var _player_storage := $PlayerStorage
 
 func _ready():
 	EventBus.connect("large_text_display", self, "_on_large_text_display")
-	EventBus.connect("large_text_hide", self, "_on_large_text_hide")
+	EventBus.connect("large_text_hidden", self, "_on_large_text_hidden")
 	EventBus.connect("change_level", self, "_on_change_level")
 	_setup_camera()
 
@@ -44,7 +44,7 @@ func _find_player():
 		_player = Util.find_player()
 
 
-func _on_large_text_display(message: String):
+func _on_large_text_display(message: String, delay: float = 0.0):
 	_tween.interpolate_property(
 		_canvas_modulate, 
 		"color",
@@ -55,7 +55,7 @@ func _on_large_text_display(message: String):
 	_tween.start()
 
 
-func _on_large_text_hide():
+func _on_large_text_hidden():
 	_tween.interpolate_property(
 		_canvas_modulate, 
 		"color",

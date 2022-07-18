@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "Life Strands",
+	"display_name_bool": true,
+	"id": "character-1658163268.json",
+	"mirror_portraits": false,
+	"name": "Scribbles",
+	"nickname": "Hobo Cum",
+	"nickname_bool": true,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/gfx/groundwriting.png"
+		}
+	],
+	"scale": 400,
+	"theme": ""
+}

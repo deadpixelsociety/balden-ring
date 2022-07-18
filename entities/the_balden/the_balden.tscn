@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://entities/the_balden/the_balden.gd" type="Script" id=1]
 [ext_resource path="res://assets/gfx/characters/the_balden/the_balden.png" type="Texture" id=2]
@@ -12,11 +12,18 @@
 [ext_resource path="res://assets/gfx/animations/characters/attack_right.tres" type="Animation" id=10]
 [ext_resource path="res://assets/gfx/animations/characters/attack_left.tres" type="Animation" id=11]
 [ext_resource path="res://assets/gfx/characters/the_balden/the_balden_roll.png" type="Texture" id=12]
-[ext_resource path="res://assets/gfx/flash_bang.png" type="Texture" id=13]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Hurt 1.wav" type="AudioStream" id=13]
 [ext_resource path="res://assets/fonts/edensor_gold_24.tres" type="DynamicFont" id=14]
 [ext_resource path="res://assets/gfx/shadow.png" type="Texture" id=15]
 [ext_resource path="res://assets/shaders/whiteout.gdshader" type="Shader" id=16]
 [ext_resource path="res://assets/gfx/square.png" type="Texture" id=17]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Hurt 5.wav" type="AudioStream" id=18]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Hurt 7.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Hurt 3.wav" type="AudioStream" id=20]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Sword Swing.wav" type="AudioStream" id=21]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Whoosh.wav" type="AudioStream" id=22]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Single Gulp.wav" type="AudioStream" id=23]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Misc Beeps 2.wav" type="AudioStream" id=24]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
@@ -665,7 +672,6 @@ move_speed = 125.0
 weapon_def = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 16 )
 shape = SubResource( 1 )
 
@@ -724,13 +730,6 @@ script = ExtResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRadius"]
 shape = SubResource( 30 )
 
-[node name="Light2D" type="Light2D" parent="."]
-visible = false
-position = Vector2( -3, -25 )
-texture = ExtResource( 13 )
-color = Color( 1, 0.952941, 0.858824, 1 )
-energy = 0.9
-
 [node name="Shadow" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.5 )
 position = Vector2( 0, 32 )
@@ -739,19 +738,20 @@ z_index = -2
 texture = ExtResource( 15 )
 
 [node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2( 0, 32 )
 collision_layer = 128
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2( 0, 3 )
+position = Vector2( 0, -29 )
 shape = SubResource( 37 )
 
 [node name="LevelUp" type="Label" parent="."]
 visible = false
-margin_left = -54.5
-margin_top = -70.0
-margin_right = 54.5
-margin_bottom = -40.0
+margin_left = -54.0
+margin_top = -88.0
+margin_right = 55.0
+margin_bottom = -58.0
 custom_colors/font_color = Color( 0.870588, 0.698039, 0.0784314, 1 )
 custom_fonts/font = ExtResource( 14 )
 text = "LEVEL UP!"
@@ -770,3 +770,38 @@ process_material = SubResource( 39 )
 texture = ExtResource( 17 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="HurtFX" type="Node2D" parent="."]
+
+[node name="Hurt" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 13 )
+bus = "Sound"
+
+[node name="Hurt2" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 20 )
+bus = "Sound"
+
+[node name="Hurt3" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 18 )
+bus = "Sound"
+
+[node name="Hurt4" type="AudioStreamPlayer" parent="HurtFX"]
+stream = ExtResource( 19 )
+bus = "Sound"
+
+[node name="SwingFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+bus = "Sound"
+
+[node name="WooshFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+bus = "Sound"
+
+[node name="ItemFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+bus = "Sound"
+
+[node name="LevelUpFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -8.0
+bus = "Sound"

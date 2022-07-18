@@ -40,6 +40,7 @@ var _item_timer = 0.0
 var _items = [
 	preload("res://entities/items/whiskey_flask.tres")
 ]
+var _dying = false
 var _life_regen_timer = 0.0
 var _level = 1
 var _rolling = false
@@ -64,6 +65,10 @@ onready var _weapon_pivot := $WeaponPivot
 onready var _level_up_label := $LevelUp
 onready var _level_up_party := $LevelUpParty
 onready var _tween := $Tween
+onready var _hurt_fx := $HurtFX
+onready var _swing_fx := $SwingFX
+onready var _woosh_fx := $WooshFX
+onready var _item_fx := $ItemFX
 
 
 func _ready():
@@ -241,6 +246,7 @@ func heal(amount: float):
 
 func hurt(amount: float):
 	heal(-amount)
+	play_random_hurt()
 
 
 func rejuvenate(amount: float):
@@ -256,8 +262,18 @@ func clear_strands():
 	EventBus.emit_signal("strands_collected", -_strands)
 
 
+func play_random_hurt():
+	var idx = randi() % _hurt_fx.get_child_count()
+	var child = _hurt_fx.get_child(idx)
+	if child:
+		child.play()
+
+
 func _kill():
-	if Util.last_trashfire:
+	if _dying:
+		return
+	_dying = true
+	if Util.last_trashfire and is_instance_valid(Util.last_trashfire):
 		set_deferred("global_position", Util.last_trashfire.global_position)
 	else:
 		var spawn = get_tree().root.find_node("PlayerSpawn", true, false) as Node2D
@@ -278,9 +294,10 @@ func _kill():
 	rest()
 	
 	EventBus.emit_signal("you_died")
-	EventBus.emit_signal("large_text_display", "YOU ARE BALD")
-	yield(get_tree().create_timer(2.5), "timeout")
-	EventBus.emit_signal("large_text_hide")
+	EventBus.emit_signal("trashfire_rest")
+	EventBus.emit_signal("large_text_display", "YOU ARE BALD", 1.5)
+	yield(get_tree(), "idle_frame")
+	_dying = false
 
 
 
@@ -312,6 +329,8 @@ func _roll():
 	_play_animation("roll")
 	_rolling = true
 	collision_mask = COLLISION_MASK_ROLL
+	_woosh_fx.pitch_scale = Util.rand_pitch()
+	_woosh_fx.play()
 
 
 func _end_roll():
@@ -326,8 +345,12 @@ func _use_item():
 		return
 	_velocity = Vector2.ZERO
 	_item_timer = active_item.use_time
-	_using_item = true
+	_using_item = true	
 	active_item.use_item(self)
+	if active_item.sound:
+		_item_fx.pitch_scale = Util.rand_pitch()
+		_item_fx.stream = active_item.sound
+		_item_fx.play()
 	EventBus.emit_signal("item_uses_updated", 0, active_item.get_uses_available())
 
 
@@ -350,6 +373,8 @@ func _attack():
 		_weapon.attack(_damage_bonus)
 		_attack_timer = ATTACK_TIME
 		_play_animation("attack")
+		_swing_fx.pitch_scale = Util.rand_pitch()
+		_swing_fx.play()
 
 
 func _set_animation_values(direction: Vector2):
@@ -392,6 +417,7 @@ func _set_weapon_angle():
 
 func _on_strands_collected(amount: int):
 	_strands += amount * max(1.0, _level / 3.0)
+	_strands = max(0.0, _strands)
 	EventBus.emit_signal("strands_updated", _strands)
 	_check_level()
 
@@ -428,11 +454,12 @@ func _level_up():
 		_level_up_label,
 		"rect_position:y",
 		0.0,
-		-70.0,
+		-120.0,
 		0.6
 	)
 	_tween.start()
 	_level_up_party.emitting = true
+	$LevelUpFX.play()
 	yield(_tween, "tween_all_completed")
 	_tween.interpolate_property(
 		_level_up_label,
@@ -449,7 +476,7 @@ func _level_up():
 func _calc_stats():
 	max_hp = 10 + ceil(_vitality / 2) * 10
 	max_stamina = 10 + ceil(_endurance * 2.5)
-	_damage_bonus = floor(_strength / 4)
+	_damage_bonus = floor(_strength / 3)
 	_hair = 0
 	_update_condition()
 

@@ -26,7 +26,9 @@ func enter_state():
 
 
 func _can_seek() -> bool:
-	if not _player:
+	if not _player or not _player.is_inside_tree():
+		return false
+	if not target or not target.is_inside_tree():
 		return false
 	return target.global_position.distance_to(_player.global_position) <= seek_range
 

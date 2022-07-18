@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/gfx/environments/brickwall.png" type="Texture" id=1]
 [ext_resource path="res://assets/gfx/environments/parking_lot.tres" type="TileSet" id=2]
@@ -8,6 +8,16 @@
 [ext_resource path="res://world/parking_lot/parking_lot.gd" type="Script" id=6]
 [ext_resource path="res://assets/sfx/Worst_Pop_Song_Of_All_Time.mp3" type="AudioStream" id=7]
 [ext_resource path="res://world/salon/salon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/enemies/enemy_spawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/enemies/hobo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/gfx/bigbush.png" type="Texture" id=11]
+[ext_resource path="res://assets/gfx/hairsalon.png" type="Texture" id=12]
+[ext_resource path="res://assets/gfx/dumpster.png" type="Texture" id=13]
+[ext_resource path="res://assets/gfx/trashpile.png" type="Texture" id=14]
+[ext_resource path="res://entities/interactables/writing.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/gfx/grass1.png" type="Texture" id=16]
+[ext_resource path="res://assets/gfx/grass2.png" type="Texture" id=17]
+[ext_resource path="res://assets/gfx/groundrockgroup.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -25,7 +35,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [ -176.0, -176.0, -128.0 ],
 "_edit_vertical_guides_": [ -128.0 ]
 }
-level_size = Rect2( -128, -128, 768, 480 )
+level_size = Rect2( -128, -128, 896, 608 )
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -5
@@ -107,7 +117,7 @@ shape = SubResource( 3 )
 [node name="Entities" type="YSort" parent="."]
 
 [node name="TheBalden" parent="Entities" instance=ExtResource( 3 )]
-position = Vector2( 312, 352 )
+position = Vector2( 120, 368 )
 
 [node name="Door" parent="Entities" instance=ExtResource( 5 )]
 position = Vector2( 320, -32 )
@@ -115,8 +125,262 @@ display_name = "Salon Entrance"
 next_level = ExtResource( 8 )
 
 [node name="Trashfire" parent="Entities" instance=ExtResource( 4 )]
-position = Vector2( 320, 264 )
+position = Vector2( 128, 280 )
 dialogue = "ciliana-1"
+
+[node name="Bigbush" type="Sprite" parent="Entities"]
+position = Vector2( 456, -8 )
+texture = ExtResource( 11 )
+
+[node name="Bigbush2" type="Sprite" parent="Entities"]
+position = Vector2( 8, -8 )
+texture = ExtResource( 11 )
+
+[node name="Bigbush3" type="Sprite" parent="Entities"]
+position = Vector2( 96, -8 )
+texture = ExtResource( 11 )
+
+[node name="Bigbush4" type="Sprite" parent="Entities"]
+position = Vector2( 184, -8 )
+texture = ExtResource( 11 )
+
+[node name="Bigbush5" type="Sprite" parent="Entities"]
+position = Vector2( -80, -8 )
+texture = ExtResource( 11 )
+
+[node name="Bigbush6" type="Sprite" parent="Entities"]
+position = Vector2( 544, -8 )
+texture = ExtResource( 11 )
+
+[node name="Bigbush7" type="Sprite" parent="Entities"]
+position = Vector2( 632, -8 )
+texture = ExtResource( 11 )
+
+[node name="Bigbush8" type="Sprite" parent="Entities"]
+position = Vector2( 720, -8 )
+texture = ExtResource( 11 )
+
+[node name="Hairsalon" type="Sprite" parent="Entities"]
+modulate = Color( 2, 2, 2, 1 )
+position = Vector2( 320, -96 )
+rotation = -0.218166
+texture = ExtResource( 12 )
+
+[node name="Trashpile" type="Sprite" parent="Entities"]
+position = Vector2( 712, 24 )
+texture = ExtResource( 14 )
+
+[node name="Trashpile2" type="Sprite" parent="Entities"]
+position = Vector2( 680, 48 )
+texture = ExtResource( 14 )
+
+[node name="Trashpile4" type="Sprite" parent="Entities"]
+position = Vector2( 704, 432 )
+texture = ExtResource( 14 )
+
+[node name="Trashpile5" type="Sprite" parent="Entities"]
+position = Vector2( 728, 392 )
+texture = ExtResource( 14 )
+
+[node name="Trashpile3" type="Sprite" parent="Entities"]
+position = Vector2( 712, 72 )
+texture = ExtResource( 14 )
+
+[node name="Dumpster" type="Sprite" parent="Entities"]
+position = Vector2( 736, 16 )
+texture = ExtResource( 13 )
+
+[node name="Writing" parent="Entities" instance=ExtResource( 15 )]
+position = Vector2( 72, 88 )
+message = "writing-1"
+
+[node name="Grass1" type="Sprite" parent="Entities"]
+position = Vector2( -16, 184 )
+texture = ExtResource( 16 )
+
+[node name="Grass2" type="Sprite" parent="Entities"]
+position = Vector2( 528, 136 )
+texture = ExtResource( 16 )
+
+[node name="Grass3" type="Sprite" parent="Entities"]
+position = Vector2( 528, 136 )
+texture = ExtResource( 16 )
+
+[node name="Grass4" type="Sprite" parent="Entities"]
+position = Vector2( 640, 256 )
+texture = ExtResource( 16 )
+
+[node name="Grass6" type="Sprite" parent="Entities"]
+position = Vector2( 472, 408 )
+texture = ExtResource( 16 )
+
+[node name="Grass7" type="Sprite" parent="Entities"]
+position = Vector2( 152, 456 )
+texture = ExtResource( 16 )
+
+[node name="Grass8" type="Sprite" parent="Entities"]
+position = Vector2( -72, 312 )
+texture = ExtResource( 16 )
+
+[node name="Grass9" type="Sprite" parent="Entities"]
+position = Vector2( -72, 312 )
+texture = ExtResource( 16 )
+
+[node name="Grass10" type="Sprite" parent="Entities"]
+position = Vector2( 216, 96 )
+texture = ExtResource( 16 )
+
+[node name="Grass11" type="Sprite" parent="Entities"]
+position = Vector2( 216, 96 )
+texture = ExtResource( 16 )
+
+[node name="Grass12" type="Sprite" parent="Entities"]
+position = Vector2( 376, 8 )
+texture = ExtResource( 16 )
+
+[node name="Grass13" type="Sprite" parent="Entities"]
+position = Vector2( 376, 8 )
+texture = ExtResource( 16 )
+
+[node name="Grass5" type="Sprite" parent="Entities"]
+position = Vector2( 320, 216 )
+texture = ExtResource( 16 )
+
+[node name="Grass14" type="Sprite" parent="Entities"]
+position = Vector2( 360, 264 )
+texture = ExtResource( 17 )
+
+[node name="Grass15" type="Sprite" parent="Entities"]
+position = Vector2( 480, 200 )
+texture = ExtResource( 17 )
+
+[node name="Grass16" type="Sprite" parent="Entities"]
+position = Vector2( 560, 296 )
+texture = ExtResource( 17 )
+
+[node name="Grass17" type="Sprite" parent="Entities"]
+position = Vector2( 648, 416 )
+texture = ExtResource( 17 )
+
+[node name="Grass18" type="Sprite" parent="Entities"]
+position = Vector2( 144, 64 )
+texture = ExtResource( 17 )
+
+[node name="Grass19" type="Sprite" parent="Entities"]
+position = Vector2( 144, 64 )
+texture = ExtResource( 17 )
+
+[node name="Grass20" type="Sprite" parent="Entities"]
+position = Vector2( 80, 216 )
+texture = ExtResource( 16 )
+
+[node name="Grass21" type="Sprite" parent="Entities"]
+position = Vector2( 624, 168 )
+texture = ExtResource( 16 )
+
+[node name="Grass22" type="Sprite" parent="Entities"]
+position = Vector2( 624, 168 )
+texture = ExtResource( 16 )
+
+[node name="Grass23" type="Sprite" parent="Entities"]
+position = Vector2( 736, 288 )
+texture = ExtResource( 16 )
+
+[node name="Grass24" type="Sprite" parent="Entities"]
+position = Vector2( 568, 440 )
+texture = ExtResource( 16 )
+
+[node name="Grass25" type="Sprite" parent="Entities"]
+position = Vector2( 248, 488 )
+texture = ExtResource( 16 )
+
+[node name="Grass26" type="Sprite" parent="Entities"]
+position = Vector2( 24, 344 )
+texture = ExtResource( 16 )
+
+[node name="Grass27" type="Sprite" parent="Entities"]
+position = Vector2( 24, 344 )
+texture = ExtResource( 16 )
+
+[node name="Grass28" type="Sprite" parent="Entities"]
+position = Vector2( 312, 128 )
+texture = ExtResource( 16 )
+
+[node name="Grass29" type="Sprite" parent="Entities"]
+position = Vector2( 312, 128 )
+texture = ExtResource( 16 )
+
+[node name="Grass30" type="Sprite" parent="Entities"]
+position = Vector2( 472, 40 )
+texture = ExtResource( 16 )
+
+[node name="Grass31" type="Sprite" parent="Entities"]
+position = Vector2( 472, 40 )
+texture = ExtResource( 16 )
+
+[node name="Grass32" type="Sprite" parent="Entities"]
+position = Vector2( 416, 248 )
+texture = ExtResource( 16 )
+
+[node name="Grass33" type="Sprite" parent="Entities"]
+position = Vector2( 456, 296 )
+texture = ExtResource( 17 )
+
+[node name="Grass34" type="Sprite" parent="Entities"]
+position = Vector2( 576, 232 )
+texture = ExtResource( 17 )
+
+[node name="Grass35" type="Sprite" parent="Entities"]
+position = Vector2( 656, 328 )
+texture = ExtResource( 17 )
+
+[node name="Grass36" type="Sprite" parent="Entities"]
+position = Vector2( 744, 448 )
+texture = ExtResource( 17 )
+
+[node name="Grass37" type="Sprite" parent="Entities"]
+position = Vector2( 240, 96 )
+texture = ExtResource( 17 )
+
+[node name="Grass38" type="Sprite" parent="Entities"]
+position = Vector2( 240, 96 )
+texture = ExtResource( 17 )
+
+[node name="Groundrockgroup" type="Sprite" parent="Entities"]
+position = Vector2( 152, 304 )
+texture = ExtResource( 18 )
+
+[node name="Groundrockgroup3" type="Sprite" parent="Entities"]
+position = Vector2( 512, 128 )
+texture = ExtResource( 18 )
+
+[node name="Groundrockgroup4" type="Sprite" parent="Entities"]
+position = Vector2( 680, 352 )
+texture = ExtResource( 18 )
+
+[node name="Groundrockgroup5" type="Sprite" parent="Entities"]
+position = Vector2( 736, 120 )
+texture = ExtResource( 18 )
+
+[node name="Groundrockgroup6" type="Sprite" parent="Entities"]
+position = Vector2( 256, -8 )
+texture = ExtResource( 18 )
+
+[node name="Groundrockgroup7" type="Sprite" parent="Entities"]
+position = Vector2( 56, 72 )
+texture = ExtResource( 18 )
+
+[node name="Groundrockgroup8" type="Sprite" parent="Entities"]
+position = Vector2( -112, 224 )
+texture = ExtResource( 18 )
+
+[node name="Groundrockgroup9" type="Sprite" parent="Entities"]
+position = Vector2( -112, 464 )
+texture = ExtResource( 18 )
+
+[node name="Groundrockgroup2" type="Sprite" parent="Entities"]
+position = Vector2( 112, 272 )
+texture = ExtResource( 18 )
 
 [node name="POP" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 320, -48 )
@@ -125,3 +389,9 @@ autoplay = true
 max_distance = 2500.0
 attenuation = 28.8399
 bus = "Music"
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( 720, 48 )
+entities_path = NodePath("../Entities")
+enemy = ExtResource( 10 )
+radius = 50.0

@@ -45,6 +45,16 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Okay\n\nWhat the fuck.\n\nAll fucking game.\n\nALL FUCKING GAME.\n\nI've been here, holding your little bald baby hand.\n\nSpoonfeeding you lore like a mother trying to keep her imbecilic child from starving to death by its own idiocy.\n\nI helped you LEVEL UP, you UNGRATEFUL FUCKFACE, and this is how you repay me? By undoing my life's work?\n\nNo. You know what? \n\nIt's my fault. Really. For helping a psychopathic, homicidal, bald lunatic with a pair of scissors stab a bunch of hairdressers and hobos to death. I brought this on myself.\n\nUnbelievable.\n\nUn-fucking-believable.\n\nI hope you're happy, asshole.\n\n...\n\nThis isn't over.\n\nThis is NOT over."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"2"
+				],
+				"method_name": "choose_ending",
+				"target_node_path": "Util"
+			},
+			"event_id": "dialogic_042"
 		}
 	],
 	"metadata": {

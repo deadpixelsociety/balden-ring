@@ -4,7 +4,7 @@ class_name Salon
 var _boss_started = false
 
 onready var _boss := $Entities/BossSpawn/Ciliara
-onready var _lock := $BossLock/CollisionShape2D
+onready var _lock := $Walls/BossLock/CollisionShape2D
 onready var _boss_music := $BOSS
 onready var _pop_music := $POP
 
@@ -44,3 +44,6 @@ func _on_boss_ended(dead: bool):
 	if dead:
 		$Entities/BossDoor.visible = true
 		$Entities/BossTrashfire.visible = true
+		$Entities/Writing4.visible = true
+		$Entities/Writing5.visible = true
+		EventBus.emit_signal("large_text_display", "HAIR SEVERED", 2.0)

@@ -11,6 +11,7 @@ export(int) var uses = 1
 export(bool) var destroy_after_use = false
 export(float) var use_time = 0.8
 export(bool) var refreshable = false
+export(AudioStream) var sound = null
 
 
 var _uses_available = 0

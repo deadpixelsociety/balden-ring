@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://entities/items/whiskey_flask.gd" type="Script" id=1]
 [ext_resource path="res://assets/gfx/items/flask.png" type="Texture" id=2]
+[ext_resource path="res://assets/sfx/MJ5 SFX - Single Gulp.wav" type="AudioStream" id=3]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,4 +13,5 @@ uses = 3
 destroy_after_use = false
 use_time = 0.8
 refreshable = true
+sound = ExtResource( 3 )
 hp_restored = 15.0

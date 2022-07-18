@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658108854.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1658163268.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1658163268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You goddamned liar.\nYou think this is funny?\nYou think this is a game?\nThis is the fifteenth time I've seen\none of your lying messages\nand the fifteenth time I've hit a wall like an idiot.\nGod help you if I ever find you."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658166585.json",
+		"name": "writing-3"
+	}
+}

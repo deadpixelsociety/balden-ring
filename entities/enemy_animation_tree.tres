@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=22 format=2]
+[gd_resource type="AnimationNodeStateMachine" load_steps=33 format=2]
 
 [sub_resource type="AnimationNodeAnimation" id=37]
 animation = "attack_left"
@@ -50,6 +50,30 @@ min_space = Vector2( -1.1, -1.1 )
 max_space = Vector2( 1.1, 1.1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id=47]
+animation = "throw_left"
+
+[sub_resource type="AnimationNodeAnimation" id=48]
+animation = "throw_right"
+
+[sub_resource type="AnimationNodeAnimation" id=49]
+animation = "throw_down"
+
+[sub_resource type="AnimationNodeAnimation" id=50]
+animation = "throw_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=46]
+blend_point_0/node = SubResource( 47 )
+blend_point_0/pos = Vector2( -1.1, 0 )
+blend_point_1/node = SubResource( 48 )
+blend_point_1/pos = Vector2( 1.1, 0 )
+blend_point_2/node = SubResource( 49 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 50 )
+blend_point_3/pos = Vector2( 0, -1 )
+min_space = Vector2( -1.1, -1.1 )
+max_space = Vector2( 1.1, 1.1 )
+
 [sub_resource type="AnimationNodeAnimation" id=30]
 animation = "walk_left"
 
@@ -87,13 +111,27 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=45]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=52]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+
 [resource]
 states/attack/node = SubResource( 41 )
 states/attack/position = Vector2( 504, 273 )
 states/idle/node = SubResource( 13 )
 states/idle/position = Vector2( 409, 106 )
+states/throw/node = SubResource( 46 )
+states/throw/position = Vector2( 707, 201 )
 states/walk/node = SubResource( 25 )
 states/walk/position = Vector2( 601, 106 )
-transitions = [ "idle", "walk", SubResource( 34 ), "walk", "idle", SubResource( 35 ), "idle", "attack", SubResource( 42 ), "attack", "idle", SubResource( 43 ), "walk", "attack", SubResource( 44 ), "attack", "walk", SubResource( 45 ) ]
+transitions = [ "idle", "walk", SubResource( 34 ), "walk", "idle", SubResource( 35 ), "idle", "attack", SubResource( 42 ), "attack", "idle", SubResource( 43 ), "walk", "attack", SubResource( 44 ), "attack", "walk", SubResource( 45 ), "attack", "throw", SubResource( 51 ), "throw", "attack", SubResource( 52 ), "walk", "throw", SubResource( 53 ), "throw", "walk", SubResource( 54 ), "throw", "idle", SubResource( 55 ), "idle", "throw", SubResource( 56 ) ]
 start_node = "idle"
-graph_offset = Vector2( -13, -108 )
+graph_offset = Vector2( -14, 64 )

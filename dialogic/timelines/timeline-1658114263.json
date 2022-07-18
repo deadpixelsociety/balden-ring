@@ -45,6 +45,16 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "It is done.\n\nYour locks will soon grow. They will soon need maintained. It will be my honor to do this for you.\n\nLong may you reign, as Balden no more. Let us usher in this new age... together."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"1"
+				],
+				"method_name": "choose_ending",
+				"target_node_path": "Util"
+			},
+			"event_id": "dialogic_042"
 		}
 	],
 	"metadata": {
